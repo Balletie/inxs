@@ -605,13 +605,12 @@ class Transformation:
             self.states.tree = deepcopy(source_tree)
             transformation_root_xpath = source_tree.getpath(transformation_root)
             self.states.root = \
-                self.states.tree.xpath(transformation_root_xpath, smart_prefix=True)[0]
+                self.states.tree.xpath(transformation_root_xpath)[0]
         else:
             self.states.tree = transformation_root.getroottree()
             self.states.root = transformation_root
 
-        self.states.xpath_evaluator = etree.XPathEvaluator(self.states.root,
-                                                           smart_prefix=True)
+        self.states.xpath_evaluator = etree.XPathEvaluator(self.states.root)
 
         static_symbols = {
             'config': self.config,
