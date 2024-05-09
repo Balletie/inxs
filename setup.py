@@ -4,13 +4,6 @@
 from setuptools import setup
 from sys import version_info
 
-try:
-    # pip < 10
-    from pip import main as pip
-except ImportError:
-    # pip 10
-    from pip._internal import main as pip
-
 
 if version_info < (3, 6):
     raise RuntimeError("Requires Python 3.6 or later.")
